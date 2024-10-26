@@ -8,6 +8,5 @@
     { "src": "/tos", "dest": "/tos.html" },
     { "src": "/privacy", "dest": "/privacy.html" },
     { "src": "/404", "dest": "/404.html" }
-  ],
-  "analytics": false
+  ]
 }
