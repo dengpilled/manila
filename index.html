@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maynila</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maynila</title>
+    
+    <!-- Favicon links -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics-compat.js"></script>
@@ -184,12 +195,39 @@
         .title:hover {
             text-decoration: underline;
         }
-</style>
+         
+        .header {
+            background-color: #d97706;
+            padding: 4px;
+            color: #000;
+            font-size: 14.3px;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            padding: 0 4px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 15.4px;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         <div class="header-content">
-            <span class="logo">Manila</span>
+            <a href="/" class="logo">Maynila</a>
             <nav class="nav-links">
                 <a href="/new">new</a>
                 <a href="/past">past</a>
@@ -205,6 +243,8 @@
             </div>
         </div>
     </div>
+</body>
+</html>
 
     <!-- Login Modal -->
     <div id="loginModal" class="modal">
