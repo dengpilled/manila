@@ -1,0 +1,32 @@
+{
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/maynila.html",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/maynila-about.html",
+        "destination": "/about",
+        "permanent": true
+      },
+      {
+        "source": "/research.html",
+        "destination": "/research",
+        "permanent": true
+      }
+    ],
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      }
+    ]
+  }
