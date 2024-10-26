@@ -1,32 +1,13 @@
 {
-    "cleanUrls": true,
-    "trailingSlash": false,
-    "redirects": [
-      {
-        "source": "/maynila.html",
-        "destination": "/",
-        "permanent": true
-      },
-      {
-        "source": "/maynila-about.html",
-        "destination": "/about",
-        "permanent": true
-      },
-      {
-        "source": "/research.html",
-        "destination": "/research",
-        "permanent": true
-      }
-    ],
-    "headers": [
-      {
-        "source": "/(.*)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=0, must-revalidate"
-          }
-        ]
-      }
-    ]
-  }
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/research", "dest": "/research.html" },
+    { "src": "/maynila-about", "dest": "/maynila-about.html" },
+    { "src": "/faq", "dest": "/faq.html" },
+    { "src": "/tos", "dest": "/tos.html" },
+    { "src": "/privacy", "dest": "/privacy.html" },
+    { "src": "/404", "dest": "/404.html" }
+  ],
+  "analytics": false
+}
