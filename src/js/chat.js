@@ -50,7 +50,7 @@ function initChat() {
             const user = auth.currentUser;
             push(chatRef, {
                 text: text,
-                sender: user ? user.email : 'Guest',
+                sender: user ? user.email : 'anon',
                 isUser: !!user,
                 timestamp: Date.now()
             });
