@@ -9,6 +9,6 @@
     { "src": "/privacy", "dest": "/src/pages/privacy.html" },
     { "src": "/404", "dest": "/src/pages/404.html" },
     { "src": "/src/(.*)", "dest": "/src/$1" },
-    { "src": "/favicon.svg", "dest": "/public/favicon.svg" }
+    { "src": "/public/(.*)", "dest": "/public/$1" }
   ]
 }

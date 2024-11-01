@@ -1,5 +1,5 @@
 // header.js
-import { initAuth } from './firebase-init.js';
+import { initAuth } from '/src/js/firebase-init.js';  // Update this path
 
 async function loadHeader() {
     try {
