@@ -8,7 +8,8 @@
     { "src": "/faq", "dest": "/src/pages/faq.html" },
     { "src": "/tos", "dest": "/src/pages/tos.html" },
     { "src": "/privacy", "dest": "/src/pages/privacy.html" },
-    { "src": "/404", "dest": "/src/pages/404.html" }
+    { "src": "/404", "dest": "/src/pages/404.html" },
+    { "src": "/colordemo", "dest": "/src/pages/colordemo.html" }
   ],
   "outputDirectory": ".",
   "public": true
