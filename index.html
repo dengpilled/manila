@@ -516,8 +516,8 @@
                         <p>Remote / Various Locations</p>
                         
                         <a href="https://www.typeform.com/forms/xxxxx?job_id=${jobId}" 
-                           target="_blank" 
-                           class="apply-button">
+                        target="_blank" 
+                        class="apply-button">
                             Apply Now
                         </a>
                     </div>
@@ -527,10 +527,9 @@
             document.body.appendChild(popup);
             popup.style.display = 'block';
             
-            // Close button functionality
-            const closeButton = popup
-            const closeButton = popup.querySelector('.close-button');
-            closeButton.onclick = () => {
+            // Get close button after popup is added to DOM
+            const popupCloseButton = popup.querySelector('.close-button');
+            popupCloseButton.onclick = () => {
                 popup.remove();
             };
             
