@@ -3,6 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged, signOut } 
 from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
+import { getDatabase, ref, push, onValue } 
+from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -19,6 +21,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+// After initializing Firebase app
+const db = getDatabase(app);
+export { db, ref, push, onValue };
 
 // Make auth functions available globally
 window.auth = auth;
