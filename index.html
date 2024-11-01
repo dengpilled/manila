@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maynila</title>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maynila</title>
     
     <!-- Favicon links -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -27,13 +23,13 @@
       
         // Your web app's Firebase configuration
         const firebaseConfig = {
-          apiKey: "AIzaSyAwTy7YZPy8IDmfE_YgnPP91qj0e85p53M",
-          authDomain: "maynila-d1d06.firebaseapp.com",
-          projectId: "maynila-d1d06",
-          storageBucket: "maynila-d1d06.appspot.com",
-          messagingSenderId: "1079625635012",
-          appId: "1:1079625635012:web:8e7539c460674aaa56a591",
-          measurementId: "G-ER42W4EGG1"
+        apiKey: "AIzaSyAwTy7YZPy8IDmfE_YgnPP91qj0e85p53M",
+        authDomain: "maynila-d1d06.firebaseapp.com",
+        projectId: "maynila-d1d06",
+        storageBucket: "maynila-d1d06.appspot.com",
+        messagingSenderId: "1079625635012",
+        appId: "1:1079625635012:web:8e7539c460674aaa56a591",
+        measurementId: "G-ER42W4EGG1"
         };
       
         // Initialize Firebase
@@ -78,6 +74,8 @@
             font-weight: bold;
             margin-right: 12px;
             font-size: 15.4px;
+            color: #000;
+            text-decoration: none;
         }
         
         .nav-links a {
@@ -97,7 +95,7 @@
             margin: 0 auto;
         }
         
-        .nav-links a:hover, .signin a:hover {
+        .nav-links a:hover, .signin a:hover, .logo:hover {
             text-decoration: underline;
         }
 
@@ -110,6 +108,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.5);
+            z-index: 1000;
         }
 
         .modal-content {
@@ -163,16 +162,18 @@
             color: #000;
             margin-right: 12px;
         }
+
         .item {
-        margin-bottom: 13px;
-        font-size: 14.3px;
-        line-height: 1.5;
+            margin-bottom: 13px;
+            font-size: 14.3px;
+            line-height: 1.5;
         }
     
         .title {
             color: #000;
             text-decoration: none;
             font-size: 15.4px;
+            cursor: pointer;
         }
         
         .metadata {
@@ -191,36 +192,69 @@
             margin-right: 6px;
             display: inline-block;
         }
-        
-        .title:hover {
-            text-decoration: underline;
+
+        /* Job Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
         }
-         
-        .header {
-            background-color: #d97706;
-            padding: 4px;
-            color: #000;
-            font-size: 14.3px;
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 4px;
+            position: relative;
         }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            padding: 0 4px;
-            max-width: 1100px;
-            margin: 0 auto;
+
+        .close-button {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 24px;
         }
-        
-        .logo {
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 15.4px;
-            color: #000;
+
+        .job-details {
+            margin-top: 20px;
+        }
+
+        .apply-button {
+            display: inline-block;
+            background: #d97706;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
             text-decoration: none;
+            margin-top: 20px;
         }
-        
-        .logo:hover {
-            text-decoration: underline;
+
+        .apply-button:hover {
+            background: #b45309;
+        }
+
+        .job-id {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            display: none;
+            color: #dc2626;
+            background-color: #fee2e2;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 4px;
+            text-align: center;
         }
     </style>
 </head>
@@ -243,8 +277,6 @@
             </div>
         </div>
     </div>
-</body>
-</html>
 
     <!-- Login Modal -->
     <div id="loginModal" class="modal">
@@ -268,179 +300,275 @@
         </div>
     </div>
 
-
-    <!-- Original content... -->
+    <!-- Job Listings -->
     <div class="content">
         <div class="item">
             <span class="tag">Contract</span>
-            <a href="#" class="title">Anti-Poaching Drone Operator ($8,000/mo)</a><br>
+            <span class="title">Anti-Poaching Drone Operator ($8,000/mo)</span><br>
             <span class="metadata">2 hours ago | Security, Technical | 7 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Job</span>
-            <a href="#" class="title">E-Ink Supply Chain Specialist ($150k/yr)</a><br>
+            <span class="title">E-Ink Supply Chain Specialist ($150k/yr)</span><br>
             <span class="metadata">2 hours ago | Hardware, Logistics | 4 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Bounty</span>
-            <a href="#" class="title">Public Works Blog Post ($222 BTC)</a><br>
+            <span class="title">Public Works Blog Post ($222 BTC)</span><br>
             <span class="metadata">3 hours ago | Writing, Policy | 12 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Job</span>
-            <a href="#" class="title">Vertical Farm Systems Architect ($175k/yr)</a><br>
+            <span class="title">Vertical Farm Systems Architect ($175k/yr)</span><br>
             <span class="metadata">3 hours ago | Agriculture, Engineering | 9 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Research</span>
-            <a href="#" class="title">Mayan Sites LiDAR Scanning (Volunteer)</a><br>
+            <span class="title">Mayan Sites LiDAR Scanning (Volunteer)</span><br>
             <span class="metadata">4 hours ago | Research, Technical | 8 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Contract</span>
-            <a href="#" class="title">Bitcoin Mining Facility Setup ($45k)</a><br>
+            <span class="title">Bitcoin Mining Facility Setup ($45k)</span><br>
             <span class="metadata">4 hours ago | Crypto, Engineering | 16 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Job</span>
-            <a href="#" class="title">Senior Frontend Developer ($120k/yr)</a><br>
+            <span class="title">Senior Frontend Developer ($120k/yr)</span><br>
             <span class="metadata">5 hours ago | Technical, Crypto | 24 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Contract</span>
-            <a href="#" class="title">Hydroponics System Installation ($30k)</a><br>
+            <span class="title">Hydroponics System Installation ($30k)</span><br>
             <span class="metadata">5 hours ago | Agriculture, Engineering | 11 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Bounty</span>
-            <a href="#" class="title">Smart Contract Audit ($2,000)</a><br>
+            <span class="title">Smart Contract Audit ($2,000)</span><br>
             <span class="metadata">6 hours ago | Technical, Crypto | 15 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Job</span>
-            <a href="#" class="title">Private Security Specialist ($95k/yr + Housing)</a><br>
+            <span class="title">Private Security Specialist ($95k/yr + Housing)</span><br>
             <span class="metadata">6 hours ago | Security, Training | 28 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Research</span>
-            <a href="#" class="title">Environmental Impact Study ($5,000)</a><br>
+            <span class="title">Environmental Impact Study ($5,000)</span><br>
             <span class="metadata">7 hours ago | Research, Technical | 6 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Contract</span>
-            <a href="#" class="title">Sovereign Internet Infrastructure ($40k)</a><br>
+            <span class="title">Sovereign Internet Infrastructure ($40k)</span><br>
             <span class="metadata">7 hours ago | Network, Security | 13 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Job</span>
-            <a href="#" class="title">Technical Writer ($80k/yr)</a><br>
+            <span class="title">Technical Writer ($80k/yr)</span><br>
             <span class="metadata">8 hours ago | Writing, Technical | 19 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Contract</span>
-            <a href="#" class="title">Solar Grid Designer ($25k)</a><br>
+            <span class="title">Solar Grid Designer ($25k)</span><br>
             <span class="metadata">8 hours ago | Energy, Engineering | 21 applications</span>
         </div>
-
+    
         <div class="item">
             <span class="tag">Job</span>
-            <a href="#" class="title">Regenerative Agriculture Expert ($110k/yr)</a><br>
+            <span class="title">Regenerative Agriculture Expert ($110k/yr)</span><br>
             <span class="metadata">9 hours ago | Agriculture, Research | 15 applications</span>
         </div>
     </div>
 
     <script>
-        // Modal handling
-        const modal = document.getElementById('loginModal');
-        const signInButton = document.getElementById('signInButton');
-    
-        signInButton.onclick = () => {
-            modal.style.display = 'block';
-        }
-    
-        modal.onclick = (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
-    
-        // Google Sign In
-        document.getElementById('googleSignIn').addEventListener('click', () => {
-            const provider = new GoogleAuthProvider();
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    modal.style.display = 'none';
-                    console.log('Successfully signed in with Google:', result.user.email);
-                    alert('Successfully signed in!');
-                })
-                .catch((error) => {
-                    console.error('Error signing in:', error);
-                    alert(error.message);
-                });
-        });
-    
-        // Email Sign In
-        document.getElementById('emailSignIn').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = e.target[0].value;
-            const password = e.target[1].value;
-    
-            signInWithEmailAndPassword(auth, email, password)
-                .then((result) => {
-                    modal.style.display = 'none';
-                    console.log('Successfully signed in with email:', result.user.email);
-                    alert('Successfully signed in!');
-                })
-                .catch((error) => {
-                    console.error('Error signing in:', error);
-                    alert(error.message);
-                });
-        });
-    
-        // Auth state observer
-        onAuthStateChanged(auth, (user) => {
+        // Initialize auth system
+        const initAuth = () => {
+            const modal = document.getElementById('loginModal');
+            const signInButton = document.getElementById('signInButton');
             const userInfo = document.getElementById('userInfo');
-            
-            if (user) {
-                // User is signed in
-                console.log('User signed in:', user);
-                signInButton.textContent = 'log out';  // Changed from 'sign out' to 'log out'
-                userInfo.style.display = 'block';
-                userInfo.textContent = user.email;
-                
-                signInButton.onclick = () => {
-                    signOut(auth)
-                        .then(() => {
-                            console.log('Successfully signed out');
-                            userInfo.style.display = 'none';
-                            modal.style.display = 'none';
-                        })
-                        .catch((error) => {
-                            console.error('Error signing out:', error);
-                        });
-                };
-            } else {
-                // User is signed out
-                console.log('User signed out');
-                signInButton.textContent = 'sign in';
-                userInfo.style.display = 'none';
-                
-                signInButton.onclick = () => {
+            const errorDisplay = document.createElement('div');
+            errorDisplay.className = 'error-message';
+            modal.querySelector('.modal-content').appendChild(errorDisplay);
+
+            const showError = (message) => {
+                errorDisplay.textContent = message;
+                errorDisplay.style.display = 'block';
+                setTimeout(() => {
+                    errorDisplay.style.display = 'none';
+                }, 5000);
+            };
+
+            // Auth event listeners
+            signInButton.onclick = () => {
+                const user = auth.currentUser;
+                if (user) {
+                    handleSignOut();
+                } else {
                     modal.style.display = 'block';
+                }
+            };
+
+            modal.onclick = (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            };
+
+            // Google Sign In
+            document.getElementById('googleSignIn').onclick = async () => {
+                try {
+                    const provider = new GoogleAuthProvider();
+                    const result = await signInWithPopup(auth, provider);
+                    modal.style.display = 'none';
+                } catch (error) {
+                    showError(error.message);
+                }
+            };
+
+            // Email Sign In
+            document.getElementById('emailSignIn').onsubmit = async (e) => {
+                e.preventDefault();
+                const email = e.target[0].value;
+                const password = e.target[1].value;
+                try {
+                    await signInWithEmailAndPassword(auth, email, password);
+                    modal.style.display = 'none';
+                } catch (error) {
+                    showError(error.message);
+                }
+            };
+
+            // Auth state observer
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    userInfo.style.display = 'block';
+                    userInfo.textContent = user.email;
+                    signInButton.textContent = 'log out';
+                } else {
+                    userInfo.style.display = 'none';
+                    signInButton.textContent = 'sign in';
+                }
+            });
+        };
+
+        // Initialize job listings
+        const initJobListings = () => {
+            // Create unique IDs for each job listing
+            document.querySelectorAll('.item').forEach((item, index) => {
+                const type = item.querySelector('.tag').textContent.toLowerCase();
+                const timestamp = Date.now();
+                const uniqueId = `${type}-${timestamp}-${index + 1}`;
+                
+                item.setAttribute('data-job-id', uniqueId);
+                
+                const titleElement = item.querySelector('.title');
+                titleElement.onclick = (e) => {
+                    e.preventDefault();
+                    showJobPopup(item);
                 };
+            });
+        };
+
+        // Show job popup
+        function showJobPopup(jobItem) {
+            const jobId = jobItem.getAttribute('data-job-id');
+            const type = jobItem.querySelector('.tag').textContent;
+            const title = jobItem.querySelector('.title').textContent;
+            const metadata = jobItem.querySelector('.metadata').textContent;
+            
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+            popup.innerHTML = `
+                <div class="popup-content">
+                    <span class="close-button">&times;</span>
+                    <span class="tag">${type}</span>
+                    <h2 style="margin: 10px 0;">${title}</h2>
+                    <div class="job-id">ID: ${jobId}</div>
+                    <div class="metadata">${metadata}</div>
+                    <div class="job-details">
+                        <h3>Job Description</h3>
+                        <p>We are looking for a qualified professional to join our team...</p>
+                        
+                        <h3>Requirements</h3>
+                        <ul>
+                            <li>Relevant experience in the field</li>
+                            <li>Strong communication skills</li>
+                            <li>Ability to work independently</li>
+                        </ul>
+                        
+                        <h3>Compensation</h3>
+                        <p>${title.match(/\(([^)]+)\)/)[1]}</p>
+                        
+                        <h3>Location</h3>
+                        <p>Remote / Various Locations</p>
+                        
+                        <a href="https://www.typeform.com/forms/xxxxx?job_id=${jobId}" 
+                           target="_blank" 
+                           class="apply-button">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(popup);
+            popup.style.display = 'block';
+            
+            // Close button functionality
+            const closeButton = popup
+            const closeButton = popup.querySelector('.close-button');
+            closeButton.onclick = () => {
+                popup.remove();
+            };
+            
+            // Close on outside click
+            popup.onclick = (e) => {
+                if (e.target === popup) {
+                    popup.remove();
+                }
+            };
+
+            // Add to recently viewed
+            addToRecentlyViewed(jobId);
+        }
+
+        // Recently viewed functionality
+        function addToRecentlyViewed(jobId) {
+            let recent = JSON.parse(localStorage.getItem('recentJobs') || '[]');
+            recent = [jobId, ...recent.filter(id => id !== jobId)].slice(0, 5);
+            localStorage.setItem('recentJobs', JSON.stringify(recent));
+        }
+
+        // Initialize both auth and job listings when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initAuth();
+            initJobListings();
+        });
+
+        // Optional: Add keyboard support for closing popups
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const popup = document.querySelector('.popup');
+                if (popup) {
+                    popup.remove();
+                }
+                const modal = document.getElementById('loginModal');
+                if (modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                }
             }
         });
     </script>
