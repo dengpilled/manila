@@ -12,41 +12,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     
-    <!-- Firebase SDKs -->
+    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics-compat.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged, signOut } 
-        from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyAwTy7YZPy8IDmfE_YgnPP91qj0e85p53M",
-          authDomain: "maynila-d1d06.firebaseapp.com",
-          projectId: "maynila-d1d06",
-          storageBucket: "maynila-d1d06.appspot.com",
-          messagingSenderId: "1079625635012",
-          appId: "1:1079625635012:web:8e7539c460674aaa56a591",
-          measurementId: "G-ER42W4EGG1"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-      
-        // Make auth functions available globally
-        window.auth = auth;
-        window.GoogleAuthProvider = GoogleAuthProvider;
-        window.signInWithPopup = signInWithPopup;
-        window.signInWithEmailAndPassword = signInWithEmailAndPassword;
-        window.onAuthStateChanged = onAuthStateChanged;
-        window.signOut = signOut;
-    </script>
+    <script type="module" src="/firebase-init.js"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/src/css/styles.css">
 </head>
 <body>
     <div id="header-container"></div>
@@ -355,8 +325,9 @@
                 }
             }
         });
-        </script>
-    <script src="/header.js"></script>
-    <script src="/listings.js"></script>
+    </script>
+    
+<script type="module" src="/src/js/header.js"></script>
+<script src="/src/js/listings.js"></script>
 </body>
 </html>

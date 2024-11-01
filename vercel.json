@@ -1,12 +1,14 @@
 {
   "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/research", "dest": "/research.html" },
-    { "src": "/maynila-about", "dest": "/maynila-about.html" },
-    { "src": "/faq", "dest": "/faq.html" },
-    { "src": "/tos", "dest": "/tos.html" },
-    { "src": "/privacy", "dest": "/privacy.html" },
-    { "src": "/404", "dest": "/404.html" }
+    { "src": "/", "dest": "/src/pages/index.html" },
+    { "src": "/about", "dest": "/src/pages/about.html" },
+    { "src": "/research", "dest": "/src/pages/research.html" },
+    { "src": "/maynila-about", "dest": "/src/pages/maynila-about.html" },
+    { "src": "/faq", "dest": "/src/pages/faq.html" },
+    { "src": "/tos", "dest": "/src/pages/tos.html" },
+    { "src": "/privacy", "dest": "/src/pages/privacy.html" },
+    { "src": "/404", "dest": "/src/pages/404.html" },
+    { "src": "/src/(.*)", "dest": "/src/$1" },
+    { "src": "/favicon.svg", "dest": "/public/favicon.svg" }
   ]
 }

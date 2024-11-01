@@ -1,7 +1,7 @@
 // listings.js
 async function loadListings() {
     try {
-        const response = await fetch('/listings.html');
+        const response = await fetch('/src/components/listings.html');
         const html = await response.text();
         document.getElementById('listings-container').innerHTML = html;
         

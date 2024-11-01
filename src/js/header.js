@@ -3,7 +3,7 @@ import { initAuth } from './firebase-init.js';
 
 async function loadHeader() {
     try {
-        const response = await fetch('/header.html');
+        const response = await fetch('/src/components/header.html');
         const html = await response.text();
         document.getElementById('header-container').innerHTML = html;
         
