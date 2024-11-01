@@ -1,3 +1,4 @@
+/* Base styles */
 body {
     font-family: Verdana, Geneva, sans-serif;
     margin: 0;
@@ -6,11 +7,13 @@ body {
     font-size: 14.3px;
 }
 
+/* Header styles */
 .header {
     background-color: #d97706;
     padding: 4px;
     color: #000;
     font-size: 14.3px;
+    margin-bottom: 0;
 }
 
 .header-content {
@@ -25,6 +28,8 @@ body {
     font-weight: bold;
     margin-right: 12px;
     font-size: 15.4px;
+    color: #000;
+    text-decoration: none;
 }
 
 .nav-links a {
@@ -36,81 +41,30 @@ body {
 
 .signin {
     margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
+/* Hover states */
+.nav-links a:hover, 
+.signin a:hover,
+.logo:hover {
+    text-decoration: underline;
+}
+
+/* Content area */
 .content {
     padding: 15px;
     max-width: 1100px;
     margin: 0 auto;
+    margin-top: 0;
 }
 
-.nav-links a:hover, .signin a:hover {
-    text-decoration: underline;
+#listings-container {
+    margin-top: 0;
 }
 
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-    background: #fff;
-    padding: 20px;
-    width: 90%;
-    max-width: 400px;
-    margin: 40px auto;
-    border-radius: 4px;
-}
-
-.login-option {
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.google-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14.3px;
-}
-
-.email-form input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.submit-button {
-    width: 100%;
-    padding: 10px;
-    background: #d97706;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.user-info {
-    display: none;
-    color: #000;
-    margin-right: 12px;
-}
-
+/* Listings styles */
 .item {
     margin-bottom: 13px;
     font-size: 14.3px;
@@ -121,6 +75,7 @@ body {
     color: #000;
     text-decoration: none;
     font-size: 15.4px;
+    cursor: pointer;
 }
 
 .metadata {
@@ -140,219 +95,22 @@ body {
     display: inline-block;
 }
 
-.title:hover {
-    text-decoration: underline;
-}
-
-.header {
-    background-color: #d97706;
-    padding: 4px;
+/* User info styles */
+.user-info {
+    display: none;
     color: #000;
-    font-size: 14.3px;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    padding: 0 4px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-weight: bold;
     margin-right: 12px;
-    font-size: 15.4px;
+}
+
+.user-email {
     color: #000;
     text-decoration: none;
+    margin-right: 12px;
 }
 
-.logo:hover {
-    text-decoration: underline;
-}
-        body {
-            font-family: Verdana, Geneva, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f6f6ef;
-            font-size: 14.3px;
-        }
-        
-        .header {
-            background-color: #d97706;
-            padding: 4px;
-            color: #000;
-            font-size: 14.3px;
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            padding: 0 4px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 15.4px;
-            color: #000;
-            text-decoration: none;
-        }
-        
-        .nav-links a {
-            color: #000;
-            text-decoration: none;
-            margin-right: 12px;
-            font-size: 14.3px;
-        }
-        
-        .signin {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-        }
-
-        /* New styles for user info and account */
-        .user-info {
-            display: none;
-            color: #000;
-            margin-right: 12px;
-        }
-
-        .user-email {
-            color: #000;
-            text-decoration: none;
-            margin-right: 12px;
-        }
-
-        .user-email:hover {
-            text-decoration: underline;
-        }
-
-        /* Modal and popup styles */
-        .modal, .account-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-        }
-
-        .modal-content, .account-content {
-            background: #fff;
-            padding: 20px;
-            width: 90%;
-            max-width: 500px;
-            margin: 40px auto;
-            border-radius: 4px;
-            position: relative;
-        }
-
-        .close-button {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            cursor: pointer;
-            font-size: 24px;
-        }
-
-        /* Account page specific styles */
-        .account-section {
-            margin-bottom: 20px;
-        }
-
-        .account-section h3 {
-            margin-bottom: 10px;
-            color: #d97706;
-        }
-
-        .application-list {
-            border: 1px solid #eee;
-            border-radius: 4px;
-            padding: 10px;
-        }
-
-        .application-item {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .application-item:last-child {
-            border-bottom: none;
-        }
-
-        .settings-field {
-            margin-bottom: 15px;
-        }
-
-        .settings-field label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .settings-field input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .save-button {
-            background: #d97706;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .save-button:hover {
-            background: #b45309;
-        }
-
-        /* Login form styles */
-        .login-option {
-            margin-bottom: 20px;
-            width: 100%;
-        }
-
-        .google-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: white;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14.3px;
-        }
-
-        .email-form input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .error-message {
-            display: none;
-            color: #dc2626;
-            background-color: #fee2e2;
-            padding: 8px;
-            margin: 8px 0;
-            border-radius: 4px;
-            text-align: center;
-        }
-        /* Add only these new styles */
+/* Modal and popup styles */
+.modal, 
+.account-popup,
 .popup {
     display: none;
     position: fixed;
@@ -364,16 +122,124 @@ body {
     z-index: 1000;
 }
 
+.modal-content, 
+.account-content,
 .popup-content {
     background: #fff;
     padding: 20px;
     width: 90%;
-    max-width: 600px;
+    max-width: 500px;
     margin: 40px auto;
     border-radius: 4px;
     position: relative;
 }
 
+.popup-content {
+    max-width: 600px;
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Login form styles */
+.login-option {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14.3px;
+}
+
+.email-form input,
+.settings-field input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Account page styles */
+.account-section {
+    margin-bottom: 20px;
+}
+
+.account-section h3 {
+    margin-bottom: 10px;
+    color: #d97706;
+}
+
+.application-list {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.application-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.application-item:last-child {
+    border-bottom: none;
+}
+
+.settings-field {
+    margin-bottom: 15px;
+}
+
+.settings-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Button styles */
+.submit-button,
+.save-button,
+.apply-button {
+    background: #d97706;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-button:hover,
+.save-button:hover,
+.apply-button:hover {
+    background: #b45309;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+}
+
+.apply-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+/* Job details */
 .job-details {
     margin-top: 20px;
 }
@@ -384,21 +250,13 @@ body {
     margin-bottom: 10px;
 }
 
-.apply-button {
-    display: inline-block;
-    background: #d97706;
-    color: white;
-    padding: 10px 20px;
+/* Error message */
+.error-message {
+    display: none;
+    color: #dc2626;
+    background-color: #fee2e2;
+    padding: 8px;
+    margin: 8px 0;
     border-radius: 4px;
-    text-decoration: none;
-    margin-top: 20px;
-}
-
-.apply-button:hover {
-    background: #b45309;
-}
-
-/* Make the title clickable */
-.title {
-    cursor: pointer;
+    text-align: center;
 }
