@@ -4,46 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manila - Research</title>
+    <link rel="stylesheet" href="/src/css/styles.css">
     <style>
-        body {
-            font-family: Verdana, Geneva, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f6f6ef;
-            font-size: 14.3px;
-        }
         
-        .header {
-            background-color: #d97706;
-            padding: 4px;
-            color: #000;
-            font-size: 14.3px;
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            padding: 0 4px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 15.4px;
-        }
-        
-        .nav-links a {
-            color: #000;
-            text-decoration: none;
-            margin-right: 12px;
-            font-size: 14.3px;
-        }
-        
-        .signin {
-            margin-left: auto;
-        }
         
         .content {
             padding: 15px;
@@ -129,23 +92,8 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <span class="logo">Manila</span>
-            <nav class="nav-links">
-                <a href="/new">new</a>
-                <a href="/past">past</a>
-                <a href="https://www.typeform.com" target="_blank">submit</a>
-                <a href="/research">research</a>
-                <a href="https://www.typeform.com" target="_blank">apply</a>
-                <a href="/manila-about.html">about</a>
-                <a href="https://palestrasociety.com/join">join palestra</a>
-            </nav>
-            <div class="signin">
-                <a href="/login" style="color: #000;">sign in</a>
-            </div>
-        </div>
-    </div>
+    <div id="header-container"></div>
+        
 
     <div class="content">
         <div class="research-item">
@@ -224,5 +172,6 @@
             </div>
         </div>
     </div>
+<script type="module" src="/src/js/header.js"></script>
 </body>
 </html>

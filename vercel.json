@@ -4,7 +4,7 @@
     { "src": "/public/(.*)", "dest": "/public/$1" },
     { "src": "/", "dest": "/src/pages/index.html" },
     { "src": "/about", "dest": "/src/pages/about.html" },
-    { "src": "/research", "dest": "/src/pages/research.html" },
+    { "src": "/journal", "dest": "/src/pages/journal.html" },
     { "src": "/faq", "dest": "/src/pages/faq.html" },
     { "src": "/tos", "dest": "/src/pages/tos.html" },
     { "src": "/privacy", "dest": "/src/pages/privacy.html" },
