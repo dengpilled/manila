@@ -7,7 +7,7 @@ function initChat() {
     chatContainer.innerHTML = `
         <div class="chat-box">
             <div class="chat-header">
-                <h3>Chat</h3>
+                <h3>chat</h3>
                 <button class="minimize-chat">−</button>
             </div>
             <div class="chat-messages"></div>
