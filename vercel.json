@@ -10,5 +10,7 @@
     { "src": "/tos", "dest": "/src/pages/tos.html" },
     { "src": "/privacy", "dest": "/src/pages/privacy.html" },
     { "src": "/404", "dest": "/src/pages/404.html" }
-  ]
+  ],
+  "outputDirectory": ".",
+  "public": true
 }
