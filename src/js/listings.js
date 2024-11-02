@@ -34,10 +34,11 @@ function initJobListings() {
 
 // Job popup function
 function showJobPopup(jobItem) {
-    const jobId = jobItem.getAttribute('data-job-id');
+    const jobId = jobItem.querySelector('.job-id').textContent;
     const type = jobItem.querySelector('.tag').textContent;
     const title = jobItem.querySelector('.title').textContent;
     const metadata = jobItem.querySelector('.metadata').textContent;
+    const description = jobItem.querySelector('.description').textContent;
     
     const popup = document.createElement('div');
     popup.className = 'popup';
@@ -46,26 +47,12 @@ function showJobPopup(jobItem) {
             <span class="close-button">&times;</span>
             <span class="tag">${type}</span>
             <h2 style="margin: 10px 0;">${title}</h2>
-            <div class="job-id">ID: ${jobId}</div>
             <div class="metadata">${metadata}</div>
             <div class="job-details">
-                <h3>Job Description</h3>
-                <p>We are looking for a qualified professional to join our team...</p>
+                <h3>Description</h3>
+                <p>${description}</p>
                 
-                <h3>Requirements</h3>
-                <ul>
-                    <li>Relevant experience in the field</li>
-                    <li>Strong communication skills</li>
-                    <li>Ability to work independently</li>
-                </ul>
-                
-                <h3>Compensation</h3>
-                <p>${title.match(/\(([^)]+)\)/)[1]}</p>
-                
-                <h3>Location</h3>
-                <p>Remote / Various Locations</p>
-                
-                <a href="https://www.typeform.com/forms/xxxxx?job_id=${jobId}" 
+                <a href="https://form.typeform.com/to/JLKYbqas#job_id=${jobId}" 
                    target="_blank" 
                    class="apply-button">
                     Apply Now
@@ -76,7 +63,6 @@ function showJobPopup(jobItem) {
     
     document.body.appendChild(popup);
     popup.style.display = 'block';
-
     // Close button functionality
     const closeButton = popup.querySelector('.close-button');
     closeButton.onclick = () => {
