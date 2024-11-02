@@ -103,3 +103,27 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
+
+function showGrantsPopup() {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+        <div class="popup-content" style="max-width: 400px;">
+            <span class="close-button">&times;</span>
+            <h2 style="margin-bottom: 20px;">Grants Coming Soon</h2>
+            <p>Grants for research and business ventures may be coming soon, but are not currently available.</p>
+        </div>
+    `;
+    
+    document.body.appendChild(popup);
+    popup.style.display = 'block';
+
+    // Close button functionality
+    const closeButton = popup.querySelector('.close-button');
+    closeButton.onclick = () => popup.remove();
+
+    // Click outside to close
+    popup.onclick = (e) => {
+        if (e.target === popup) popup.remove();
+    };
+}

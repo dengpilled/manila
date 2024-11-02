@@ -389,3 +389,26 @@ body {
 .chat-box.minimized .chat-input {
     display: none;
 }
+
+/* Add to your styles.css */
+.tag {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.tag:hover .tag-text {
+    display: none;
+}
+
+.tag:hover .apply-text {
+    display: inline;
+}
+
+.tag .apply-text {
+    display: none;
+}
+
+.tag:hover {
+    background: #b45309; /* Darker shade on hover */
+}
